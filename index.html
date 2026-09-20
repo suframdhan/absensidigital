@@ -130,8 +130,8 @@
         MASUK SISTEM <i class="fa-solid fa-arrow-right-to-bracket ml-1.5"></i>
       </button>
 
-      <!-- TOMBOL INTEGRASI KE WEBSITE AKSARA -->
-      <a href="https://yfaksara.my.id/" target="_blank" class="w-full block bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-4 rounded-xl text-xs tracking-wide uppercase transition-all mb-4 border border-slate-200 shadow-2xs">
+      <!-- TOMBOL INTEGRASI KE WEBSITE AKSARA (TANPA TAB BARU) -->
+      <a href="https://yfaksara.my.id/" class="w-full block bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-4 rounded-xl text-xs tracking-wide uppercase transition-all mb-4 border border-slate-200 shadow-2xs">
         <i class="fa-solid fa-globe mr-1.5 text-teal-600"></i> Buka Portal Aksara Utama
       </a>
 
@@ -394,13 +394,11 @@
 
   <!-- SCRIPT JS UNTUK GITHUB PAGES (FETCH KE BACKEND GAS) -->
   <script>
-    // MASUKKAN URL WEB APP GOOGLE APPS SCRIPT ANDA DI SINI (Contoh: https://script.google.com/macros/s/.../exec)
     const GAS_API_URL = "https://script.google.com/macros/s/AKfycby3Dz1WuycWTKCU3dcYqitgAhJ4A1IOgPVLuOGiefEZ_zYWzcCIEtCufJSMq_WPoCrAAQ/exec";
 
     document.getElementById('tglHariIni').innerText = new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     let loggedInUser = {};
 
-    // Helper untuk memanggil backend GAS dari GitHub Pages
     async function callGasApi(funcName, ...args) {
       try {
         let response = await fetch(GAS_API_URL, {
@@ -508,7 +506,6 @@
     function toggleMobileMenu() {
       const sidebar = document.getElementById('sidebarNav');
       const overlay = document.getElementById('sidebarOverlay');
-      
       if (sidebar.classList.contains('-translate-x-full')) {
         sidebar.classList.remove('-translate-x-full');
         overlay.classList.remove('hidden');
@@ -803,20 +800,6 @@
       let dataSiswa = []; for (let i = 1; i <= 36; i++) { let nism = document.getElementById(`nism_baru_${i}`).value.trim(), nama = document.getElementById(`nama_baru_${i}`).value.trim(); if (nism && nama) dataSiswa.push({ nis: nism, nama: nama }); }
       let res = await callGasApi('simpanDataSiswaMassal', { kelas: kls, dataSiswa: dataSiswa });
       if(res.success) Swal.fire('Berhasil!', res.msg, 'success');
-    }
-
-    function toggleMobileMenu() {
-      const sidebar = document.getElementById('sidebarNav');
-      const overlay = document.getElementById('sidebarOverlay');
-      if (sidebar.classList.contains('-translate-x-full')) {
-        sidebar.classList.remove('-translate-x-full');
-        overlay.classList.remove('hidden');
-        setTimeout(() => overlay.classList.remove('opacity-0'), 10);
-      } else {
-        sidebar.classList.add('-translate-x-full');
-        overlay.classList.add('opacity-0');
-        setTimeout(() => overlay.classList.add('hidden'), 300);
-      }
     }
   </script>
 </body>
