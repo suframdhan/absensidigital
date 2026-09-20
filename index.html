@@ -8,7 +8,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body, html { width: 100%; height: 100%; overflow: hidden; background-color: #F8FAFC; font-family: 'Plus Jakarta Sans', sans-serif; }
         
-        /* Layar pemuatan awal yang elegan */
         #loading-screen {
             position: fixed;
             inset: 0;
@@ -31,7 +30,6 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        /* Bingkai aplikasi utama yang memenuhi layar */
         iframe {
             width: 100%;
             height: 100%;
@@ -42,18 +40,27 @@
 </head>
 <body>
 
-    <!-- Animasi loading saat pertama kali dibuka -->
+    <!-- Animasi loading awal -->
     <div id="loading-screen">
         <div class="spinner"></div>
         <h3 style="color: #0f172a; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 0.05em;">AKSARA DIGITAL ABSENSI</h3>
         <p style="color: #64748b; font-size: 11px; margin-top: 4px; font-weight: 600;">MAN 1 KOTA CIREBON</p>
     </div>
 
-    <!-- Memuat seluruh sistem aplikasi Google Apps Script secara transparan -->
+    <!-- Iframe dengan URL Web App Google Apps Script terbaru Anda -->
     <iframe id="app-frame" src="https://script.google.com/macros/s/AKfycbwWCnPmm6p7OBJ4nV2V0e9YR6ukNHWez1j00obtBkq78ieCSEh-qKUqZj1p1ED-fEI9Xw/exec" 
             onload="document.getElementById('loading-screen').style.opacity='0'; setTimeout(()=>document.getElementById('loading-screen').style.display='none', 400);"
             allow="fullscreen; camera; microphone; clipboard-read; clipboard-write">
     </iframe>
+
+    <script>
+        // Penanganan pengaman jika iframe mendeteksi blokir bingkai dari Google
+        const iframe = document.getElementById('app-frame');
+        iframe.onerror = function() {
+            console.warn("Gagal memuat iframe langsung, mengalihkan ke mode langsung...");
+            window.location.href = iframe.src;
+        };
+    </script>
 
 </body>
 </html>
