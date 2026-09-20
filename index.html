@@ -65,37 +65,55 @@
     #sidebarOverlay { transition: opacity 0.3s ease; }
 
     @media print {
-      @page { size: A4 landscape; margin: 6mm; }
+      @page { size: A4 landscape; margin: 5mm; }
       * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
       html, body { width: 100% !important; height: auto !important; max-width: none !important; background: white !important; overflow: visible !important; }
       #sidebarNav, #sidebarOverlay, header, .role-restricted, #halaman-login, button:not(.no-print-keep), .cetak-hidden { display: none !important; }
       .print-kop, .ttd-container { display: block !important; visibility: visible !important; opacity: 1 !important; }
       .bsi-card, .bg-white { background-color: transparent !important; border: none !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
-      .print-kop { margin-bottom: 10px !important; }
-      .ttd-container { margin-top: 20px !important; page-break-inside: avoid !important; }
-      table { width: 100% !important; border-collapse: collapse !important; font-size: 8.5px !important; table-layout: fixed !important; }
+      .print-kop { margin-bottom: 6px !important; }
+      .ttd-container { margin-top: 15px !important; page-break-inside: avoid !important; }
+      
+      table { width: 100% !important; border-collapse: collapse !important; font-size: 7.5px !important; table-layout: fixed !important; }
       tr { page-break-inside: avoid !important; page-break-after: auto !important; }
       thead { display: table-header-group !important; }
-      table th, table td { border: 1px solid black !important; padding: 2px 0px !important; color: #000000 !important; overflow: hidden; word-break: break-all; text-align: center; }
-      table th:nth-child(1), table td:nth-child(1) { width: 3% !important; }
-      table th:nth-child(2), table td:nth-child(2) { width: 9% !important; }
-      table th:nth-child(3), table td:nth-child(3) { width: 19% !important; text-align: left !important; padding-left: 3px !important; }
-      table th:nth-child(4), table td:nth-child(4) { width: 4% !important; }
-      table th:nth-child(n+5):nth-child(-n+35), table td:nth-child(n+5):nth-child(-n+35) { width: 1.8% !important; font-size: 8px !important; }
+      
+      table th, table td { 
+        border: 0.8px solid black !important; 
+        padding: 1px 0px !important; 
+        color: #000000 !important; 
+        overflow: hidden !important; 
+        white-space: nowrap !important; 
+        text-overflow: ellipsis !important;
+        text-align: center !important; 
+        height: 14px !important;
+      }
+
+      table th:nth-child(1), table td:nth-child(1) { width: 2.5% !important; }
+      table th:nth-child(2), table td:nth-child(2) { width: 7.5% !important; font-size: 7px !important; }
+      table th:nth-child(3), table td:nth-child(3) { width: 17.5% !important; text-align: left !important; padding-left: 3px !important; }
+      table th:nth-child(4), table td:nth-child(4) { width: 3.5% !important; }
+      
+      table th:nth-child(n+5):nth-child(-n+35), table td:nth-child(n+5):nth-child(-n+35) { 
+        width: 1.6% !important; 
+        font-size: 7px !important; 
+      } 
+
       table th:nth-child(36), table td:nth-child(36) { width: 3% !important; }
       table th:nth-child(37), table td:nth-child(37) { width: 3% !important; }
       table th:nth-child(38), table td:nth-child(38) { width: 3% !important; }
       table th:nth-child(39), table td:nth-child(39) { width: 3% !important; }
-      table th:nth-child(40), table td:nth-child(40) { width: 4% !important; }
-      thead tr { background-color: #f3f4f6 !important; color: #000000 !important; font-weight: bold !important; }
+      table th:nth-child(40), table td:nth-child(40) { width: 4.2% !important; font-size: 7px !important; }
+      
+      thead tr { background-color: #e2e8f0 !important; color: #000000 !important; font-weight: bold !important; }
     }
   </style>
 </head>
 <body class="flex h-[100dvh] overflow-hidden">
 
-  <!-- PORTAL LOGIN & REGISTRASI -->
-  <div id="halaman-login" class="w-full h-full flex items-center justify-center bg-gradient-to-br from-teal-900 via-teal-800 to-slate-900 absolute z-40 top-0 left-0 overflow-y-auto py-10">
-    <div class="bsi-card p-8 w-[420px] text-center relative my-auto border-0 shadow-2xl bg-white/95 backdrop-blur-md">
+  <!-- PORTAL LOGIN & REGISTRASI (GRADASI PUTIH, KREM, HIJAU, KUNING) -->
+  <div id="halaman-login" class="w-full h-full flex items-center justify-center bg-gradient-to-tr from-amber-50 via-teal-50/50 to-white absolute z-40 top-0 left-0 overflow-y-auto py-10">
+    <div class="bsi-card p-8 w-[420px] text-center relative my-auto border border-amber-100/60 shadow-2xl bg-white/90 backdrop-blur-md">
       <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-white p-2.5 rounded-2xl shadow-lg border border-teal-100">
         <img src="https://i.ibb.co.com/990f8Z1S/Untitled-500-x-500-px-e1736830153862.png" alt="Logo" class="w-16 h-16 object-contain">
       </div>
@@ -130,7 +148,6 @@
         MASUK SISTEM <i class="fa-solid fa-arrow-right-to-bracket ml-1.5"></i>
       </button>
 
-      <!-- TOMBOL INTEGRASI KE WEBSITE AKSARA (TANPA TAB BARU) -->
       <a href="https://yfaksara.my.id/" class="w-full block bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-4 rounded-xl text-xs tracking-wide uppercase transition-all mb-4 border border-slate-200 shadow-2xs">
         <i class="fa-solid fa-globe mr-1.5 text-teal-600"></i> Buka Portal Aksara Utama
       </a>
@@ -318,7 +335,12 @@
               <div><label class="bsi-label">Semester</label><select id="semester" onchange="ubahBulan()" class="bsi-input"><option value="">Pilih</option><option value="Gasal">Gasal</option><option value="Genap">Genap</option></select></div>
               <div><label class="bsi-label">Bulan</label><select id="bulan" class="bsi-input"><option value="">Pilih</option></select></div>
               <div><label class="bsi-label">Kelas</label><select id="kelasFilter" class="bsi-input"><option value="">Memuat...</option></select></div>
-              <div><label class="bsi-label">Tanggal</label><input type="number" id="tanggal" min="1" max="31" class="bsi-input"></div>
+              <div>
+                <label class="bsi-label">Tanggal</label>
+                <select id="tanggal" class="bsi-input font-bold">
+                  <option value="">Pilih...</option>
+                </select>
+              </div>
               <div><button onclick="cariSiswa()" class="w-full bg-teal-700 hover:bg-teal-800 text-white font-bold rounded-xl py-3 shadow-sm text-xs tracking-wide uppercase">CARI DATA</button></div>
             </div>
           </div>
@@ -372,10 +394,16 @@
             </div>
             
             <div class="bg-teal-50/40 p-4 rounded-xl border border-teal-100 space-y-3">
+              <label class="bsi-label text-teal-900"><i class="fa-solid fa-database mr-1 text-teal-600"></i> ID SPREADSHEET CABANG ANDA</label>
+              <input type="text" id="profSpreadsheetId" placeholder="Memuat ID Spreadsheet..." class="bsi-input font-mono text-xs bg-white text-teal-900 font-bold">
+              <p class="text-[10px] text-slate-500">ID ini otomatis terisi dari data pendaftaran Anda dan memastikan data absensi tersimpan ke spreadsheet pribadi.</p>
+            </div>
+
+            <div class="bg-teal-50/40 p-4 rounded-xl border border-teal-100 space-y-3">
               <label class="bsi-label text-teal-900"><i class="fa-solid fa-book mr-1 text-teal-600"></i> Mata Pelajaran yang Diampu</label>
               <input type="text" id="profMapel1" placeholder="Mata Pelajaran Utama" class="bsi-input font-bold text-teal-900 bg-white">
-              <input type="text" id="profMapel2" placeholder="Mata Pelajaran Opsional 1 (Opsional)" class="bsi-input bg-white text-xs">
-              <input type="text" id="profMapel3" placeholder="Mata Pelajaran Opsional 2 (Opsional)" class="bsi-input bg-white text-xs">
+              <input type="text" id="profMapel2" placeholder="Mata Pelajaran 2 (Opsional)" class="bsi-input bg-white text-xs">
+              <input type="text" id="profMapel3" placeholder="Mata Pelajaran 3 (Opsional)" class="bsi-input bg-white text-xs">
             </div>
 
             <div>
@@ -421,6 +449,15 @@
         dataKelas.forEach(k => { sd.innerHTML += `<option value="${k}">${k}</option>`; sf.innerHTML += `<option value="${k}">${k}</option>`; sm.innerHTML += `<option value="${k}">${k}</option>`; });
       }
 
+      // Mengisi pilihan dropdown tanggal 1 sampai 31 otomatis
+      let selectTanggal = document.getElementById('tanggal');
+      if(selectTanggal) {
+        selectTanggal.innerHTML = '<option value="">Pilih...</option>';
+        for (let t = 1; t <= 31; t++) {
+          selectTanggal.innerHTML += `<option value="${t}">${t}</option>`;
+        }
+      }
+
       let tbody = document.getElementById('tabelInputMassal'), html = "";
       for (let i = 1; i <= 36; i++) {
         html += `<tr class="border-b border-slate-100"><td class="p-2 text-center text-slate-400 font-bold">${i}</td><td class="p-0 border-r border-slate-100"><input type="text" id="nism_baru_${i}" class="w-full p-3 input-massal border-none bg-transparent font-mono text-xs"></td><td class="p-0"><input type="text" id="nama_baru_${i}" class="w-full p-3 input-massal border-none bg-transparent text-xs"></td></tr>`;
@@ -454,6 +491,10 @@
       let dashKelas = document.getElementById('dashKelas');
       let containerWali = document.getElementById('containerWaliKelasGuru');
       
+      if (dashKelas && dashKelas.parentElement) {
+        dashKelas.parentElement.classList.remove('hidden');
+      }
+
       if (res.role === "Admin") {
         document.getElementById('navAdminAkun').classList.remove('hidden');
         document.querySelectorAll('.guru-only').forEach(el => el.classList.add('hidden'));
@@ -464,31 +505,39 @@
         let selectGuru = document.getElementById('dashPilihGuru');
         selectGuru.innerHTML = '<option value="">-- Pilih Guru Mapel --</option>';
         dataGuru.forEach(g => selectGuru.innerHTML += `<option value="${g.spreadsheetId}">${g.nama}</option>`);
-        gantiMenu('dashboard');
       } else if (res.role === "Guru") {
         document.getElementById('navAdminAkun').classList.add('hidden');
         document.querySelectorAll('.guru-only').forEach(el => el.classList.remove('hidden'));
         dashKelas.disabled = false;
         containerWali.classList.add('hidden');
         muatDataProfil();
-        gantiMenu('dashboard');
       } else if (res.role === "Wali Kelas") {
         document.getElementById('navAdminAkun').classList.add('hidden');
         document.querySelectorAll('.guru-only').forEach(el => el.classList.add('hidden'));
         containerWali.classList.remove('hidden');
         dashKelas.value = res.kelasBinaan;
         dashKelas.disabled = true;
+        if (dashKelas && dashKelas.parentElement) {
+          dashKelas.parentElement.classList.add('hidden');
+        }
         muatDropdownGuruByKelas(res.kelasBinaan);
-        gantiMenu('dashboard');
       } else {
         document.getElementById('navAdminAkun').classList.add('hidden');
         document.querySelectorAll('.guru-only').forEach(el => el.classList.add('hidden'));
         containerWali.classList.remove('hidden');
         dashKelas.value = res.kelas;
         dashKelas.disabled = true;
+        if (dashKelas && dashKelas.parentElement) {
+          dashKelas.parentElement.classList.add('hidden');
+        }
         muatDropdownGuruByKelas(res.kelas);
-        gantiMenu('dashboard');
       }
+
+      let lastMenu = localStorage.getItem('yf_active_menu') || 'dashboard';
+      if (res.role !== "Admin" && lastMenu === 'admin-akun') {
+        lastMenu = 'dashboard';
+      }
+      gantiMenu(lastMenu);
     }
 
     async function muatDropdownGuruByKelas(kelasTarget) {
@@ -621,6 +670,7 @@
 
     function logoutApp() {
       localStorage.removeItem('yf_absensi_session');
+      localStorage.removeItem('yf_active_menu');
       document.getElementById('halaman-login').classList.remove('hidden');
       document.getElementById('aplikasi-utama').classList.add('hidden');
       document.getElementById('loginUsername').value = '';
@@ -633,17 +683,20 @@
         let tbGuru = document.querySelector('#tabelAkunGuru tbody'); tbGuru.innerHTML = "";
         data.guruMapel.forEach(g => {
           let mapelInfo = g[5] ? `<br><span class="text-[10px] text-teal-700 font-bold">${g[5]}</span>` : "";
-          tbGuru.innerHTML += `<tr class="border-b"><td class="p-3 font-mono text-slate-600">${g[0]}</td><td class="p-3 font-bold text-slate-800">${g[2]}${mapelInfo}</td><td class="p-3 text-slate-600">${g[3]}</td><td class="p-3 text-slate-600">${g[5] || '-'}</td><td class="p-3 text-xs text-slate-400 font-mono truncate max-w-xs">${g[4]}</td><td class="p-3 text-center"><button onclick="hapusAkunData('Guru', '${g[0]}')" class="text-rose-500"><i class="fa-solid fa-trash"></i></button></td></tr>`;
+          let dataJson = encodeURIComponent(JSON.stringify({tipe: 'Guru', username: g[0], password: g[1], nama: g[2], nip: g[3], spreadsheetId: g[4], mapel1: g[5]||'', mapel2: g[6]||'', mapel3: g[7]||''}));
+          tbGuru.innerHTML += `<tr class="border-b border-slate-100 hover:bg-slate-50"><td class="p-3 font-mono text-slate-600">${g[0]}</td><td class="p-3 font-bold text-slate-800">${g[2]}${mapelInfo}</td><td class="p-3 text-slate-600">${g[3]}</td><td class="p-3 text-slate-600">${g[5] || '-'}</td><td class="p-3 text-xs text-slate-400 font-mono truncate max-w-xs">${g[4]}</td><td class="p-3 text-center flex justify-center gap-2"><button onclick="bukaModalEditAkun(JSON.parse(decodeURIComponent('${dataJson}')))" class="text-teal-600 hover:text-teal-800 p-1" title="Edit Akun"><i class="fa-solid fa-pen-to-square"></i></button><button onclick="hapusAkunData('Guru', '${g[0]}')" class="text-rose-500 hover:text-rose-700 p-1" title="Hapus Akun"><i class="fa-solid fa-trash"></i></button></td></tr>`;
         });
 
         let tbWali = document.querySelector('#tabelAkunWali tbody'); tbWali.innerHTML = "";
         data.waliKelas.forEach(w => {
-          tbWali.innerHTML += `<tr class="border-b"><td class="p-3 font-mono text-slate-600">${w[0]}</td><td class="p-3 font-bold text-slate-800">${w[2]}</td><td class="p-3 text-slate-700 font-semibold">${w[4]}</td><td class="p-3 text-center"><button onclick="hapusAkunData('WaliKelas', '${w[0]}')" class="text-rose-500"><i class="fa-solid fa-trash"></i></button></td></tr>`;
+          let dataJsonWali = encodeURIComponent(JSON.stringify({tipe: 'WaliKelas', username: w[0], password: w[1], nama: w[2], nip: w[3], kelasBinaan: w[4]}));
+          tbWali.innerHTML += `<tr class="border-b border-slate-100 hover:bg-slate-50"><td class="p-3 font-mono text-slate-600">${w[0]}</td><td class="p-3 font-bold text-slate-800">${w[2]}</td><td class="p-3 text-slate-700 font-semibold">${w[4]}</td><td class="p-3 text-center flex justify-center gap-2"><button onclick="bukaModalEditAkun(JSON.parse(decodeURIComponent('${dataJsonWali}')))" class="text-teal-600 hover:text-teal-800 p-1" title="Edit Akun"><i class="fa-solid fa-pen-to-square"></i></button><button onclick="hapusAkunData('WaliKelas', '${w[0]}')" class="text-rose-500 hover:text-rose-700 p-1" title="Hapus Akun"><i class="fa-solid fa-trash"></i></button></td></tr>`;
         });
 
         let tbSiswa = document.querySelector('#tabelAkunSiswa tbody'); tbSiswa.innerHTML = "";
         data.siswaWali.forEach(s => {
-          tbSiswa.innerHTML += `<tr class="border-b"><td class="p-3 font-bold text-slate-800">${s[0]}</td><td class="p-3 font-mono text-slate-600">${s[1]}</td><td class="p-3 text-center"><button onclick="hapusAkunData('Siswa', '${s[0]}')" class="text-rose-500"><i class="fa-solid fa-trash"></i></button></td></tr>`;
+          let dataJsonSiswa = encodeURIComponent(JSON.stringify({tipe: 'Siswa', kelas: s[0], username: s[1], password: s[2]}));
+          tbSiswa.innerHTML += `<tr class="border-b border-slate-100 hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">${s[0]}</td><td class="p-3 font-mono text-slate-600">${s[1]}</td><td class="p-3 text-center flex justify-center gap-2"><button onclick="bukaModalEditAkun(JSON.parse(decodeURIComponent('${dataJsonSiswa}')))" class="text-teal-600 hover:text-teal-800 p-1" title="Edit Akun"><i class="fa-solid fa-pen-to-square"></i></button><button onclick="hapusAkunData('Siswa', '${s[0]}')" class="text-rose-500 hover:text-rose-700 p-1" title="Hapus Akun"><i class="fa-solid fa-trash"></i></button></td></tr>`;
         });
       }
     }
@@ -677,6 +730,78 @@
       });
     }
 
+    function bukaModalEditAkun(data) {
+      let htmlContent = "";
+      if (data.tipe === "Guru") {
+        htmlContent = `
+          <div style="text-align: left; display: flex; flex-direction: column; gap: 8px;">
+            <div><label class="bsi-label">Username</label><input id="editUser" class="bsi-input" value="${data.username}"></div>
+            <div><label class="bsi-label">Password Baru (Kosongkan jika tetap)</label><input id="editPass" class="bsi-input" type="password" placeholder="Biarkan kosong jika tidak diubah"></div>
+            <div><label class="bsi-label">Nama Lengkap & Gelar</label><input id="editNama" class="bsi-input" value="${data.nama}"></div>
+            <div><label class="bsi-label">NIP</label><input id="editNip" class="bsi-input" value="${data.nip}"></div>
+            <div><label class="bsi-label">ID Spreadsheet Cabang</label><input id="editSheetId" class="bsi-input font-mono text-xs" value="${data.spreadsheetId}"></div>
+            <div><label class="bsi-label">Mata Pelajaran Utama</label><input id="editMapel1" class="bsi-input" value="${data.mapel1}"></div>
+          </div>
+        `;
+      } else if (data.tipe === "WaliKelas") {
+        htmlContent = `
+          <div style="text-align: left; display: flex; flex-direction: column; gap: 8px;">
+            <div><label class="bsi-label">Username</label><input id="editUser" class="bsi-input" value="${data.username}"></div>
+            <div><label class="bsi-label">Password Baru</label><input id="editPass" class="bsi-input" type="password" placeholder="Biarkan kosong jika tidak diubah"></div>
+            <div><label class="bsi-label">Nama Lengkap</label><input id="editNama" class="bsi-input" value="${data.nama}"></div>
+            <div><label class="bsi-label">NIP</label><input id="editNip" class="bsi-input" value="${data.nip}"></div>
+            <div><label class="bsi-label">Kelas Binaan</label><input id="editKelas" class="bsi-input" value="${data.kelasBinaan}"></div>
+          </div>
+        `;
+      } else {
+        htmlContent = `
+          <div style="text-align: left; display: flex; flex-direction: column; gap: 8px;">
+            <div><label class="bsi-label">Kelas</label><input id="editKelas" class="bsi-input bg-slate-100" value="${data.kelas}" readonly></div>
+            <div><label class="bsi-label">Username Kelas</label><input id="editUser" class="bsi-input" value="${data.username}"></div>
+            <div><label class="bsi-label">Password Baru</label><input id="editPass" class="bsi-input" type="password" placeholder="Biarkan kosong jika tidak diubah"></div>
+          </div>
+        `;
+      }
+
+      Swal.fire({
+        title: '<div style="color: #0d9488; font-size: 16px; font-weight: 800;"><i class="fa-solid fa-pen-to-square mr-2"></i> EDIT AKUN</div>',
+        html: htmlContent,
+        showCancelButton: true,
+        confirmButtonText: 'SIMPAN PERUBAHAN',
+        cancelButtonText: 'BATAL',
+        confirmButtonColor: '#0d9488',
+        cancelButtonColor: '#f1f5f9',
+        customClass: {
+          cancelButton: 'text-slate-600 font-bold px-6 py-2.5 rounded-xl border border-slate-200 text-xs',
+          confirmButton: 'font-bold px-8 py-2.5 rounded-xl shadow-md text-xs'
+        },
+        focusConfirm: false,
+        preConfirm: () => ({
+          tipe: data.tipe,
+          oldUsername: data.username,
+          username: document.getElementById('editUser') ? document.getElementById('editUser').value.trim() : data.username,
+          password: document.getElementById('editPass') ? document.getElementById('editPass').value.trim() : data.password,
+          nama: document.getElementById('editNama') ? document.getElementById('editNama').value.trim() : (data.nama || ''),
+          nip: document.getElementById('editNip') ? document.getElementById('editNip').value.trim() : (data.nip || ''),
+          spreadsheetId: document.getElementById('editSheetId') ? document.getElementById('editSheetId').value.trim() : (data.spreadsheetId || ''),
+          mapel1: document.getElementById('editMapel1') ? document.getElementById('editMapel1').value.trim() : (data.mapel1 || ''),
+          kelasBinaan: document.getElementById('editKelas') ? document.getElementById('editKelas').value.trim() : (data.kelasBinaan || ''),
+          kelas: data.kelas || ''
+        })
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          Swal.fire({title: 'Menyimpan Perubahan...', allowOutsideClick: false, didOpen: () => { Swal.showLoading(); }});
+          let res = await callGasApi('updateAkun', result.value);
+          if(res.success) {
+            Swal.fire('Berhasil!', res.msg, 'success');
+            muatTabelAdminAkun();
+          } else {
+            Swal.fire('Gagal', res.msg, 'error');
+          }
+        }
+      });
+    }
+
     async function hapusAkunData(tipe, id) {
       Swal.fire({ title: 'Hapus akun?', icon: 'warning', showCancelButton: true, confirmButtonColor: '#0d9488' }).then(async (res) => {
         if(res.isConfirmed) {
@@ -693,6 +818,7 @@
         document.getElementById('profUsername').value = data.username;
         document.getElementById('profNama').value = data.nama;
         document.getElementById('profNIP').value = data.nip;
+        document.getElementById('profSpreadsheetId').value = data.spreadsheetId || "";
         document.getElementById('profMapel1').value = data.mapel1;
         document.getElementById('profMapel2').value = data.mapel2;
         document.getElementById('profMapel3').value = data.mapel3;
@@ -704,9 +830,13 @@
 
     async function simpanProfilGuru() {
       let payload = {
-        username: document.getElementById('profUsername').value.trim(), nama: document.getElementById('profNama').value.trim(),
-        nip: document.getElementById('profNIP').value.trim(), mapel1: document.getElementById('profMapel1').value.trim(),
-        mapel2: document.getElementById('profMapel2').value.trim(), mapel3: document.getElementById('profMapel3').value.trim(),
+        username: document.getElementById('profUsername').value.trim(), 
+        nama: document.getElementById('profNama').value.trim(),
+        nip: document.getElementById('profNIP').value.trim(), 
+        spreadsheetId: document.getElementById('profSpreadsheetId').value.trim(),
+        mapel1: document.getElementById('profMapel1').value.trim(),
+        mapel2: document.getElementById('profMapel2').value.trim(), 
+        mapel3: document.getElementById('profMapel3').value.trim(),
         password: document.getElementById('profPassword').value.trim()
       };
       Swal.fire({title: 'Menyimpan...', allowOutsideClick: false, didOpen: () => Swal.showLoading()});
@@ -714,7 +844,9 @@
       Swal.close();
       if(res.success) {
         Swal.fire('Berhasil', res.msg, 'success');
-        loggedInUser.username = payload.username; loggedInUser.nama = payload.nama;
+        loggedInUser.username = payload.username; 
+        loggedInUser.nama = payload.nama;
+        loggedInUser.spreadsheetId = payload.spreadsheetId;
         document.getElementById('welcomeTitle').innerText = payload.nama;
         muatDataProfil();
       } else {
@@ -723,8 +855,52 @@
     }
 
     function gantiMenu(menu) {
-      ['dashboard','absen','siswa','pengaturan','admin-akun'].forEach(m => document.getElementById(`halaman-${m}`).classList.add('hidden'));
-      document.getElementById(`halaman-${menu}`).classList.remove('hidden');
+      localStorage.setItem('yf_active_menu', menu);
+
+      ['dashboard','absen','siswa','pengaturan','admin-akun'].forEach(m => {
+        let el = document.getElementById(`halaman-${m}`);
+        if(el) el.classList.add('hidden');
+      });
+      
+      let targetHalaman = document.getElementById(`halaman-${menu}`);
+      if(targetHalaman) targetHalaman.classList.remove('hidden');
+
+      if (menu === 'pengaturan' && loggedInUser.role === 'Guru') {
+        muatDataProfil();
+      }
+
+      const daftarMenuId = ['menu-dashboard', 'menu-admin-akun', 'menu-absen', 'menu-siswa', 'menu-pengaturan'];
+      daftarMenuId.forEach(id => {
+        let btn = document.getElementById(id);
+        if (btn) {
+          btn.classList.remove('bg-teal-50', 'text-teal-800', 'font-bold', 'shadow-sm');
+          btn.classList.add('text-slate-600', 'font-semibold', 'hover:bg-slate-50');
+          let icon = btn.querySelector('i');
+          if (icon) {
+            icon.classList.remove('text-teal-600');
+            icon.classList.add('text-slate-400');
+          }
+        }
+      });
+
+      let activeMenuId = menu === 'dashboard' ? 'menu-dashboard' : 
+                         menu === 'admin-akun' ? 'menu-admin-akun' : 
+                         menu === 'absen' ? 'menu-absen' : 
+                         menu === 'siswa' ? 'menu-siswa' : 
+                         menu === 'pengaturan' ? 'menu-pengaturan' : '';
+      
+      if (activeMenuId) {
+        let activeBtn = document.getElementById(activeMenuId);
+        if (activeBtn) {
+          activeBtn.classList.remove('text-slate-600', 'font-semibold', 'hover:bg-slate-50');
+          activeBtn.classList.add('bg-teal-50', 'text-teal-800', 'font-bold', 'shadow-sm');
+          let activeIcon = activeBtn.querySelector('i');
+          if (activeIcon) {
+            activeIcon.classList.remove('text-slate-400');
+            activeIcon.classList.add('text-teal-600');
+          }
+        }
+      }
     }
 
     function ubahBulanDash() {
@@ -737,7 +913,7 @@
     async function muatDataDashboard() {
       let kelas = document.getElementById('dashKelas').value; 
       let bulan = document.getElementById('dashBulan').value;
-      if(!kelas || !bulan) { Swal.fire('Perhatian', 'Pilih Kelas dan Bulan!', 'warning'); return; }
+      if(!kelas || !bulan) { Swal.fire('Perhatian', 'Pilih Kelas dan Bulan terlebih dahulu!', 'warning'); return; }
       
       let targetSpreadsheetId = loggedInUser.spreadsheetId || "";
       if (loggedInUser.role !== "Guru") {
