@@ -64,13 +64,5 @@
             allow="fullscreen; camera; microphone; clipboard-read; clipboard-write">
     </iframe>
 
-    <script>
-        // Penanganan pengaman jika iframe mendeteksi blokir bingkai dari Google
-        const iframe = document.getElementById('app-frame');
-        iframe.onerror = function() {
-            console.warn("Gagal memuat iframe langsung, mengalihkan ke mode langsung...");
-            window.location.href = iframe.src;
-        };
-    </script>
 </body>
 </html>
